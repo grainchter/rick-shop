@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Caption");
+
+.wrap {
+    position: absolute;
+    width: 100%;
+}
+
+.container {
+  background-color: #3f3f3f98;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 0.3fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px 50px;
+  grid-auto-flow: row;
+  grid-template-areas: "menu logo user";
+}
+
+.menu {
+  grid-area: menu;
+  list-style: none;
+  padding: 0 30px;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
+
+.menu li {
+  display: inline-block;
+}
+.menu a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 30px;
+  font-family: "PT Sans Caption", sans-serif;
+  color: #aeaeae;
+  transition: 0.3s linear;
+  position: relative;
+}
+
+.menu a.current,
+.menu a:hover {
+  color: #000000;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.logo img {
+  width: 150px;
+  height: 70px;
+}
+
+.user {
+  grid-area: user;
+  list-style: none;
+  padding: 0 30px;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
+
+.user li {
+  display: inline-block;
+}
+.user a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 30px;
+  font-family: "PT Sans Caption", sans-serif;
+  color: #aeaeae;
+  transition: 0.3s linear;
+  position: relative;
+}
+
+.user a.current,
+.user a:hover {
+  color: #000000;
+}
+
+.loginWrap svg path {
+  fill: #aeaeae;
+  transition: fill ease-in-out 0.25s;
+}
+
+.loginWrap:hover svg path {
+  fill: #000000;
+}
+
+.bagWrap svg path {
+  fill: #aeaeae;
+  transition: fill ease-in-out 0.25s;
+}
+
+.bagWrap:hover svg path {
+  fill: #000000;
+}
