@@ -1,28 +1,158 @@
 import s from './catalog.module.css';
+import { database } from '../../firebase/firebase';
+import React, { useState, useEffect } from "react";
+import Card from '../card/card';
+
+import { useDispatch } from 'react-redux';
+import { getCardsResolve } from '../../store/selected';
+
+
 
 
 const Catalog = () => {
 
-    return (
-    <>
-            <div className={s.app}>
+  const dispatch = useDispatch();
 
-              <div className={s.block}>
-                <a><img></img></a>
-                <div className={s.description}>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>ffff</p>
-                  <p>fff</p>
-                </div>
-                <div className={s.price}>
-                  <p>${Math.floor((Math.random() * 10000) + 1)}</p>
-                  <input type="button" value="Buy" />
-                </div>
-              </div>
-            </div>
+
+  let onPage = 16;
+
+
+  const [char, setChar] = useState([]);
+  const [clicked, setClicked] = useState(JSON.parse(localStorage.getItem("data2")));
+  const [page, setPage] = useState(1);
+  const [arr, setArr] = useState([]);
+
+  dispatch(getCardsResolve(clicked));
+
+
+  useEffect(() => {
+    getData(1);
+  }, []);
+
+
+  const getData = (num) => {
+    database.ref('characters').orderByChild("id").startAt(num).limitToFirst(onPage).once('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        let childKey = childSnapshot.key;
+        setArr(arr => [...arr, childKey]);
+      });
+      const data = snapshot.val();
+      console.log(data);
+      console.log(typeof data);
+      setChar(data);
+
+    });
+  }
+
+  const getPrev = (num) => {
+    database.ref('characters').orderByChild("id").endAt(num).limitToLast(onPage).once('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        let childKey = childSnapshot.key;
+        setArr(arr => [...arr, childKey]);
+      });
+      const data = snapshot.val();
+
+      setChar(data);
+
+    });
+
+
+  }
+
+
+  const nexPage = () => {
+    let num = parseInt(arr[arr.length - 1]);
+    getData(num);
+    setArr([]);
+    setPage(page + 1);
+  }
+
+  const prevPage = () => {
+    let num = parseInt(arr[0]);
+    getPrev(num);
+    setArr([]);
+    setPage(page + 1);
+  }
+
+  const buy = (id) => {
+
+    let exist = false;
+
+    let obj = Object.entries(char);
+    const keyPock = obj.find(element =>
+      element[1].id === id);
+
+
+    const clicks = JSON.parse(localStorage.getItem("data2")) ?? []
+
+    clicks.forEach(element => {
+      if (keyPock[0] === element[0]) {
+        exist = true;
+      }
+    })
+
+    if (localStorage.getItem("idToken") != null) {
+      addCharacter(keyPock);
+    } else {
+      clicks.push(keyPock);
+      addCharacter(clicks);
+    }
+
+  };
+
+  const addCharacter = (clicks) => {
+
+
+
+
+    if (localStorage.getItem("idToken") != null) {
+      console.log(clicks);
+
+      database.ref('/users/' + localStorage.getItem("idToken") + '/basket/' + clicks[1].id).set(clicks[1]);
+
+    } else {
+      localStorage.setItem("data2", JSON.stringify(clicks));
+      setClicked(JSON.parse(localStorage.getItem("data2")));
+      console.log("записали в локалсторадж");
+    }
+
+  }
+
+
+  return (
+    <>
+      <div className={s.wrap}>
+        <div className={s.app}>
+          {
+            Object.entries(char).map(([key, { name, id, image, species, status }]) =>
+              <Card
+                key={id}
+                name={name}
+                image={image}
+                id={id}
+                species={species}
+                status={status}
+
+                onCardClick={() => {
+
+                  buy(id);
+
+                }
+                }
+              />
+            )
+          }
+        </div>
+        <div className={s.buttons}>
+          <button onClick={prevPage} disabled={page == 1}>prev</button>
+          <button onClick={nexPage}>next</button>
+        </div>
+
+      </div>
     </>
-    );
+
+
+  );
 }
 
 export default Catalog;

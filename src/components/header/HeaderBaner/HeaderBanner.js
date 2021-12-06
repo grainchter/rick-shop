@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FirebaseClass from "../../../firebase/firebase";
 
 import s from './HeaderBanner.module.css';
 
@@ -14,38 +13,54 @@ import beth from './../img/beth.png';
 
 const HeaderBanner = () => {
 
-    let img = [rick, pickleRick, summer, jerry, beth];
-    // let img = {
-    //     0: bg,
-    //     1: bg2,
-    //     2: bg3,
-    //     3: bg4,
-    // }
+    let img = [
+        {
+            image: rick,
+            name: "Rick"
+        },
+        {
+            image: pickleRick,
+            name: "pickleRick"
+        },
+        {
+            image: summer,
+            name: "summer"
+        },
+        {
+            image: jerry,
+            name: "jerry"
+        },
+        {
+            image: beth,
+            name: "beth"
+        },
+    ];
 
     let [index, setIndex] = useState(0);
 
-    const [show, setShow] = useState(img[index]);
-  
+    const [show, setShow] = useState(img[index].image);
+
     const nextImg = () => {
         if (index < img.length - 1) {
             setIndex(index + 1);
-            setShow(img[index]);
+            setShow(img[index + 1].image);
         } else if (index = img.length - 1) {
-            setShow(img[index]);
             setIndex(0);
+            setShow(img[0].image);
         }
     }
 
-    setTimeout(() => { nextImg() }, 1000);
+
+    setTimeout(() => { nextImg() }, 5000);
 
 
     return (
         <div className={s.wrap} style={{ backgroundImage: "url(" + show + ")" }}>
             <div className={s.character}>
-                <h1>{img[index]}</h1>
+                <h1>{img[index].name}</h1>
                 <p>Jgbcfybt</p>
             </div>
-            <button className={s.buttons} onClick={() => { console.log(img[index]); }}>Show more</button>
+            <button className={s.buttons}>Show more</button>
         </div>
     );
 }

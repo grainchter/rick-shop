@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.wrapper {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 0, 5fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+  background-color: rgb(202, 202, 202);
+  width: 60%;
+  height: auto;
+  border: 3px solid rgb(48, 47, 47);
+}
+
+div.img img {
+  width: 300px;
+  height: auto;
+}
+
+.buy {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+  background-color: rgb(202, 202, 202);
+  width: 60%;
+  height: auto;
+  border: 3px solid rgb(48, 47, 47);
+}
+
+.buy button {
+  width: 50%;
+  height: 70%;
+  background-color: #414141;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buy button:hover {
+  background-color: #868686;
+}
