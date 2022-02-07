@@ -1,66 +1,47 @@
-import React, { useState } from "react";
+import s from './HeaderBanner.module.scss';
+import cn from "classnames";
 
-import s from './HeaderBanner.module.css';
+import React, { useEffect, useState } from "react";
 
-
-import rick from './../img/rick.png';
-import pickleRick from './../img/pickleRick.png';
-import summer from './../img/summer.png';
-import jerry from './../img/jerry.png';
-import beth from './../img/beth.png';
-
-
+import banner1 from './img/banner1.png';
+import banner2 from './img/banner2.jpg';
 
 const HeaderBanner = () => {
 
-    let img = [
-        {
-            image: rick,
-            name: "Rick"
-        },
-        {
-            image: pickleRick,
-            name: "pickleRick"
-        },
-        {
-            image: summer,
-            name: "summer"
-        },
-        {
-            image: jerry,
-            name: "jerry"
-        },
-        {
-            image: beth,
-            name: "beth"
-        },
+    const img = [
+        <img key={banner1} src={banner1} alt="" />,
+        <img key={banner2} src={banner2} alt="" />,
     ];
 
-    let [index, setIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const [show, setShow] = useState(img[index].image);
+    useEffect(() => {
+        setInterval(() => {
+            setActiveIndex((current) => {
+                const res = current === img.length - 1 ? 0 : current + 1;
+                return res;
+            })
+        }, 3000)
+        return () => clearInterval();
+    }, [])
 
-    const nextImg = () => {
-        if (index < img.length - 1) {
-            setIndex(index + 1);
-            setShow(img[index + 1].image);
-        } else if (index = img.length - 1) {
-            setIndex(0);
-            setShow(img[0].image);
-        }
-    }
-
-
-    setTimeout(() => { nextImg() }, 5000);
-
+    const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1;
+    const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1;
 
     return (
-        <div className={s.wrap} style={{ backgroundImage: "url(" + show + ")" }}>
-            <div className={s.character}>
-                <h1>{img[index].name}</h1>
-                <p>Jgbcfybt</p>
+        <div className={s.slider}>
+            <div className={cn(s.img, s.img_prev)}
+                key={prevImgIndex}>
+                {img[prevImgIndex]}
             </div>
-            <button className={s.buttons}>Show more</button>
+            <div className={s.img}
+                key={activeIndex}>
+                {img[activeIndex]}
+            </div>
+            <div className={cn(s.img, s.img_next)}
+                key={nextImgIndex}>
+                {img[nextImgIndex]}
+            </div>
         </div>
     );
 }

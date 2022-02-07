@@ -1,0 +1,55 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  place-items: center;
+}
+
+.card {
+  width: 800px;
+  background-color: rgb(220, 221, 221);
+  border: solid;
+  padding: 5px;
+}
+
+.info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  gap: 10px;
+  border-top: solid;
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.cardHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+}
+
+.num {
+  font-size: 1.5em;
+  color: brown;
+}
+
+.process {
+  color: rgb(34, 165, 34);
+}
+
+@media only screen and (max-width: 850px) {
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: auto;
+  }
+}
+
+

@@ -25,6 +25,4 @@ export const { getCards, getCardsResolve} = slice.actions;
 
 export const getData = state => state.card.data;
 
-
-
 export default slice.reducer;

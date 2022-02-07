@@ -1,0 +1,32 @@
+.slider {
+  background-color: blue;
+  position: relative;
+  width: 80%;
+  height: 500px;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;	
+    position: absolute;
+    transition: all 0.7s;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .img_prev {
+    transform: translateX(-100%);
+  }
+
+  .img_next {
+    transform: translateX(100%);
+  }
+}

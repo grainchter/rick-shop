@@ -1,0 +1,69 @@
+.container {
+  display: grid;
+  place-items: center;
+}
+.wrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  grid-template-areas: ". . .";
+  background-color: rgb(202, 202, 202);
+  height: auto;
+  border-bottom: 3px solid rgb(48, 47, 47);
+}
+
+.totalPrice {
+  width: 100%;
+  border-bottom: 3px solid rgb(48, 47, 47);
+  background-color: rgb(202, 202, 202);
+}
+
+div.img img {
+  width: 100%;
+  height: auto;
+}
+
+.buy {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+  background-color: rgb(202, 202, 202);
+  width: 100%;
+  height: auto;
+  border-bottom: 3px solid rgb(48, 47, 47);
+}
+
+.buy button {
+  width: 90%;
+  height: 70%;
+  background-color: #414141;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buy button:hover {
+  background-color: #868686;
+}
+
+.checkbox {
+  input[type=checkbox] {
+    all: unset; /* this shorthand includes resetting appearance to none */
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    border-style: solid;
+  }
+  input[type=checkbox]:checked {
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+  }
+  input[type=checkbox]:focus-visible {
+    outline: auto;
+  }
+}

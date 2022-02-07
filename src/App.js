@@ -1,42 +1,81 @@
-
-import './App.css';
 import Header from './components/header/Header';
 import HeaderBanner from './components/header/HeaderBaner/HeaderBanner';
-import Bascet from './components/main/bascet/bascet';
-import HomePage from './components/HomePage';
-import RegisterPage from './components/main/LoginForm/forms/reg';
+import Basket from './components/main/basket/basket';
+import Catalog from './components/main/catalog';
+import RegisterPage from './components/main/RegForm/reg'
 
-import {  Route, Switch } from "react-router-dom";
+import User from './components/main/user/User';
+
+import HomePageMobile from './mobile/HomePage/HomePageMobile';
+import CatalogMobile from './mobile/catalog/catalogMobile';
+import BasketMobile from './mobile/basket/basket';
+import Navigation from './mobile/navigation/Navigation';
+
+import { BrowserView, MobileView } from 'react-device-detect';
+import { Route, Switch } from "react-router-dom";
+import PrivateRoute from './Routes/PrivateRoutes';
+import PublicRoutes from './Routes/PublicRoutes';
 import { useDispatch } from 'react-redux';
-import { getCardsResolve } from './store/selected';
+import { isUserLoad, token } from './store/user';
+import React, { useEffect } from 'react';
 
+// import FirebaseClass from './firebase/getData';
 
 function App() {
 
   const dispatch = useDispatch();
-  dispatch(getCardsResolve(JSON.parse(localStorage.getItem("data2"))));
-  
+
+  useEffect(() => {
+    // FirebaseClass.getCharacters();
+    getLoadStatus();
+  }, []);
+
+  const getLoadStatus = () => {
+    if (localStorage.getItem("idToken") != null) {
+      dispatch(isUserLoad(true));
+      dispatch(token(localStorage.getItem("idToken")));
+    } else {
+      dispatch(isUserLoad(false));
+    }
+  }
+
   return (
-    
-    <Switch>
-      <Route>
-        <>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={HeaderBanner} />
-            <Route path="/characters" exact component={HomePage} />
-            <Route path="/basket" component={Bascet} />
-            <Route path ="/reg" component={RegisterPage} />
-          </Switch>
-        </>
-      </Route>
-    </Switch>
-
-
-
-
-
-
+    <>
+      <BrowserView>
+        <Switch>
+          <Route>
+            <>
+              <React.StrictMode>
+                <Header />
+                <Switch>
+                  <Route path="/" exact render={() => <HeaderBanner />} />
+                  <Route path="/characters" render={() => <Catalog />} />
+                  <Route path="/basket" component={Basket} />
+                  <PublicRoutes path="/reg" component={RegisterPage} />
+                  <PrivateRoute path="/userpage" component={User} />
+                </Switch>
+              </React.StrictMode>
+            </>
+          </Route>
+        </Switch>
+      </BrowserView>
+      <MobileView>
+        <Switch>
+          <Route>
+            <>
+              <Navigation />
+              <Switch>
+                <Route path="/" exact render={() => <HomePageMobile />} />
+                <Route path="/characters" render={() => <CatalogMobile />} />
+                <Route path="/basket" render={() => <BasketMobile />} />
+                <Route path="/reg" render={() => <RegisterPage />} />
+                <Route path="/userpage" render={() => <User />} />
+              </Switch>
+            </>
+          </Route>
+        </Switch>
+      </MobileView>
+    </>
   );
 }
 

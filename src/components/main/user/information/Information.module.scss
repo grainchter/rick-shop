@@ -1,0 +1,52 @@
+.userInfoHeader {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 0.5fr;
+  width: 600px;
+  margin-bottom: 5px;
+}
+
+.userInfoHeader {
+  button {
+    height: 40px;
+    background-color: #414141;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    height: 40px;
+    background-color: #858282;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+table {
+  width: 600px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  background: #ccc;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+td {
+  width: 150px;
+  padding: 5px;
+  border: 1px solid black;
+}
