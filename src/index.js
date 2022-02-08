@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/rick-shop">
     <Provider store={store}>
       <React.StrictMode>
 
