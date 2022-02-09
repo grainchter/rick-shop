@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rick-shop/static/css/main.ac2ae066.chunk.css",
-    "main.js": "/rick-shop/static/js/main.f57d0a0d.chunk.js",
-    "main.js.map": "/rick-shop/static/js/main.f57d0a0d.chunk.js.map",
+    "main.js": "/rick-shop/static/js/main.7ffa20ad.chunk.js",
+    "main.js.map": "/rick-shop/static/js/main.7ffa20ad.chunk.js.map",
     "runtime-main.js": "/rick-shop/static/js/runtime-main.447ee4e5.js",
     "runtime-main.js.map": "/rick-shop/static/js/runtime-main.447ee4e5.js.map",
     "static/css/2.9541a776.chunk.css": "/rick-shop/static/css/2.9541a776.chunk.css",
@@ -31,6 +31,6 @@
     "static/css/2.9541a776.chunk.css",
     "static/js/2.6dff0151.chunk.js",
     "static/css/main.ac2ae066.chunk.css",
-    "static/js/main.f57d0a0d.chunk.js"
+    "static/js/main.7ffa20ad.chunk.js"
   ]
 }
