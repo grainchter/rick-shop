@@ -7,6 +7,7 @@ const LoadTrue = () => {
 
     const logout = () => {
         localStorage.removeItem("idToken");
+        localStorage.removeItem("email");
         window.location.reload();
     }
 

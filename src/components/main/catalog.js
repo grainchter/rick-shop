@@ -84,7 +84,7 @@ const Catalog = () => {
 
     if (localStorage.getItem("idToken") != null) {
       addCharacter(keyEl);
-    } else {
+    } else if (exist != true) {
       clicks.push(keyEl);
       addCharacter(clicks);
     }
