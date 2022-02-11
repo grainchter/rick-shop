@@ -43,6 +43,11 @@ label {
     color: rgb(255, 255, 255);
     border: none;
   }
+
+  button:disabled,
+  button[disabled] {
+    background-color: #8a8a8a;
+  }
 }
 
 .validActive {

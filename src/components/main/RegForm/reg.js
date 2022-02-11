@@ -113,7 +113,7 @@ const RegisterPage = () => {
                         </div>
                     </div>
                     <div className={s.but}>
-                        <button onClick={register}>Login</button>
+                        <button onClick={register} disabled={emailValid === false || passwordValid === false || name.name.length === 0}>Login</button>
                     </div>
                 </div>
             </div>
