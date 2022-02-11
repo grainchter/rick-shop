@@ -76,7 +76,7 @@ const User = () => {
           </div>
           <div className={s.userNavBar}>
             <button onClick={() => { setClicked("orders") }}>Заказы</button>
-            <button onClick={() => { setClicked("information") }}>Information</button>
+            <button onClick={() => { setClicked("information") }}>Информация</button>
           </div>
           <div>
             {isClicked === "orders" &&

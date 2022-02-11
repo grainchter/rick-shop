@@ -63,7 +63,7 @@ const Information = ({ userCountry, userCity, userStreet, userHouse, userPhone }
   return (
     <>
       <div className={s.userInfoHeader}>
-        <h1>INFORMATION</h1>
+        <h1>Информация</h1>
         {edit === true &&
           <button onClick={() => {
             setEdit(!edit);
