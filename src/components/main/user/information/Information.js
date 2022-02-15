@@ -15,11 +15,11 @@ const Information = ({ userCountry, userCity, userStreet, userHouse, userPhone }
 
   const [edit, setEdit] = useState(true);
 
-  const [country, setCountry] = useState(userCountry);
-  const [city, setCity] = useState(userCity);
-  const [street, setStreet] = useState(userStreet);
-  const [house, setHouse] = useState(userHouse);
-  const [phone, setPhone] = useState(userPhone);
+  const [country, setCountry] = useState(null);
+  const [city, setCity] = useState(null);
+  const [street, setStreet] = useState(null);
+  const [house, setHouse] = useState(null);
+  const [phone, setPhone] = useState(null);
 
   const onCountryChange = (e) => {
     setCountry(e.target.value);
