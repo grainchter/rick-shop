@@ -29,17 +29,20 @@ const HeaderBanner = () => {
     const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1;
 
     return (
-        <div className={s.slider}>
+        <div className={s.slider} key={prevImgIndex}>
             <div className={cn(s.img, s.img_prev)}
-                key={prevImgIndex}>
+            // key={prevImgIndex}>
+            >
                 {img[prevImgIndex]}
             </div>
             <div className={s.img}
-                key={activeIndex}>
+            // key={activeIndex}>
+            >
                 {img[activeIndex]}
             </div>
             <div className={cn(s.img, s.img_next)}
-                key={nextImgIndex}>
+            // key={nextImgIndex}>
+            >
                 {img[nextImgIndex]}
             </div>
         </div>

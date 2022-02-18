@@ -19,9 +19,9 @@ const LoadFalse = () => {
     const onEmailChange = (e) => {
         const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-        if (reg.test(e.target.value) == false) {
+        if (reg.test(e.target.value) === false) {
             setEmailValid(false);
-        } else if (reg.test(e.target.value) == true) {
+        } else if (reg.test(e.target.value) === true) {
             setEmailValid(true);
             setEmail(e.target.value);
         }

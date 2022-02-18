@@ -21,9 +21,9 @@ const RegisterPage = () => {
     const onEmailChange = (e) => {
         const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-        if (reg.test(e.target.value) == false) {
+        if (reg.test(e.target.value) === false) {
             setEmailValid(false);
-        } else if (reg.test(e.target.value) == true) {
+        } else if (reg.test(e.target.value) === true) {
             setEmailValid(true);
             setEmail(e.target.value);
         }
@@ -33,9 +33,9 @@ const RegisterPage = () => {
 
         const reg = /([0-9a-zA-Z!@#$%^&*]){6,}/;
 
-        if (reg.test(e.target.value) == false) {
+        if (reg.test(e.target.value) === false) {
             setPasswordValid(false);
-        } else if (reg.test(e.target.value) == true) {
+        } else if (reg.test(e.target.value) === true) {
             setPasswordValid(true);
             setPass(e.target.value);
         }

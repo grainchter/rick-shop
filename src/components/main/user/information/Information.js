@@ -15,30 +15,40 @@ const Information = ({ userCountry, userCity, userStreet, userHouse, userPhone }
 
   const [edit, setEdit] = useState(true);
 
-  const [country, setCountry] = useState(null);
-  const [city, setCity] = useState(null);
-  const [street, setStreet] = useState(null);
-  const [house, setHouse] = useState(null);
-  const [phone, setPhone] = useState(null);
+  const [country, setCountry] = useState(userCountry);
+  const [city, setCity] = useState(userCity);
+  const [street, setStreet] = useState(userStreet);
+  const [house, setHouse] = useState(userHouse);
+  const [phone, setPhone] = useState(userPhone);
 
   const onCountryChange = (e) => {
-    setCountry(e.target.value);
+
+    e.target.value ? setCountry(e.target.value) : setCountry("");
+
   }
 
   const onCityChange = (e) => {
-    setCity(e.target.value);
+
+    e.target.value ? setCity(e.target.value) : setCity("");
+
   }
 
   const onStreetChange = (e) => {
-    setStreet(e.target.value);
+
+    e.target.value ? setStreet(e.target.value) : setStreet("");
+
   }
 
   const onHouseChange = (e) => {
-    setHouse(e.target.value);
+
+    e.target.value ? setHouse(e.target.value) : setHouse("");
+
   }
 
   const onPhoneChange = (value) => {
-    setPhone(value);
+
+    value ? setPhone(value) : setCountry("");
+
   }
 
   const editUser = () => {
