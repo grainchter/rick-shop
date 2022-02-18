@@ -1,17 +1,16 @@
 .slider {
-  background-color: blue;
   position: relative;
   width: 80%;
-  height: 500px;
+  height: 80vh;
   margin: auto;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  // align-items: center;
   overflow: hidden;
 
   .img {
     width: 100%;
-    height: 500px;
+    height: auto;
     object-fit: cover;	
     position: absolute;
     transition: all 0.7s;
