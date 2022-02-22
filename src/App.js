@@ -10,6 +10,7 @@ import HomePageMobile from './mobile/HomePage/HomePageMobile';
 import CatalogMobile from './mobile/catalog/catalogMobile';
 import BasketMobile from './mobile/basket/basket';
 import Navigation from './mobile/navigation/Navigation';
+import UserPageMobile from './mobile/UserPageMobile/UserPageMobile';
 
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Route, Switch } from "react-router-dom";
@@ -69,7 +70,7 @@ function App() {
                 <Route path="/characters" render={() => <CatalogMobile />} />
                 <Route path="/basket" render={() => <BasketMobile />} />
                 <Route path="/reg" render={() => <RegisterPage />} />
-                <Route path="/userpage" render={() => <User />} />
+                <Route path="/userpage" component={UserPageMobile} />
               </Switch>
             </>
           </Route>

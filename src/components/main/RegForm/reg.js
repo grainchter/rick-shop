@@ -94,18 +94,18 @@ const RegisterPage = () => {
                         <div className={s.input_container}>
                             <div>
                                 <label htmlFor="userName">userName</label>
-                                <input name="userName" type="text" onChange={onNameChange} autocomplete="off"></input>
+                                <input name="userName" type="text" onChange={onNameChange} autoComplete="off"></input>
                             </div>
                             <div>
                                 <label htmlFor="email">Email</label>
-                                <input name="email" onChange={onEmailChange} type="text" autocomplete="off" className={cn(s.email, {
+                                <input name="email" onChange={onEmailChange} type="text" autoComplete="off" className={cn(s.email, {
                                     [s.validActive]: emailValid === true,
                                     [s.validUnactive]: emailValid === false,
                                 })}></input>
                             </div>
                             <div>
                                 <label htmlFor="pass">Password</label>
-                                <input name="pass" onChange={onPassChange} type="password" autocomplete="off" className={cn(s.email, {
+                                <input name="pass" onChange={onPassChange} type="password" autoComplete="off" className={cn(s.email, {
                                     [s.validActive]: passwordValid === true,
                                     [s.validUnactive]: passwordValid === false,
                                 })}></input>

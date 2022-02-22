@@ -57,3 +57,9 @@ label {
 .validUnactive {
   color: red;
 }
+
+@media screen and (max-width: 400px) {
+  .form {
+    width: 100%;
+  }
+}

@@ -14,7 +14,7 @@ const Orders = ({ orderArr }) => {
       }
 
       {
-        orderArr != null &&
+        orderArr !== null &&
         <div className={s.wrap}>
           {
             Object.entries(orderArr).map(([key, value]) =>
