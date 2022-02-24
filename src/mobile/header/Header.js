@@ -15,6 +15,18 @@ const HeaderMobile = () => {
                 <div>
                     <p>LOGO</p>
                 </div>
+                <div>
+                    {loadStatus === false &&
+
+                        <Link to="login">
+                            <LoginSVG />
+                        </Link>
+                    }
+
+                    {loadStatus === true &&
+                        <LogoutSVG />
+                    }
+                </div>
             </div>
 
         </>
