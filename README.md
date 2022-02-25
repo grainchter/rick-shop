@@ -36,9 +36,9 @@ RickShop - пет-проект, в котором я хочу показать, 
 
 ### Авторизация/Регистрация
 
-![alt text](https://i.ibb.co/vVn9ttf/auth.png)
+![alt text](https://i.ibb.co/sFH87VH/login.png)
 
-![alt text](https://i.ibb.co/7zZqDBM/reg.png)
+![alt text](https://i.ibb.co/S0BWJdB/regg.png)
 
 На странице регистрации предусмотрена валидация полей:
 
