@@ -2,7 +2,7 @@
 
 Интернет-магазин, базирующийся на вселенной Рика и Морти.
 
-### [LIVE DEMO](https://rick-shop.herokuapp.com/rick-shop/)
+### [LIVE DEMO](https://rick-shop.grainchter.cf/)
 
 ## Для чего нужен?
 
